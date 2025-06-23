@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>ISO 690 modifié – Université</title>
+    <id>http://www.zotero.org/styles/iso690-universite</id>
+    <link href="http://www.zotero.org/styles/iso690-universite" rel="self"/>
+    <author>
+      <name>Style personnalisé</name>
+    </author>
+    <category citation-format="author-date"/>
+    <updated>2025-06-23T12:00:00+00:00</updated>
+  </info>
+
+  <!-- Règles pour les citations in-text -->
+  <citation>
+    <layout delimiter="; ">
+      <group delimiter=", ">
+        <names variable="author">
+          <name initialize-with="" delimiter=" et " et-al-min="3" et-al-use-first="1" et-al-subsequent-min="3" form="long" font-style="normal"/>
+          <label form="short" prefix=" (" suffix=""/>
+        </names>
+        <text variable="year" suffix=")" suffix=""/>
+      </group>
+      <text term="year-suffix"/>
+    </layout>
+  </citation>
+
+  <!-- Règles pour la bibliographie -->
+  <bibliography>
+    <layout hanging-indent="true" line-spacing="1">
+      <text macro="author" suffix=". "/>
+      <text macro="issued" suffix=". "/>
+      <group delimiter=". ">
+        <text macro="title"/>
+        <text macro="container-title"/>
+        <text macro="publisher"/>
+        <text macro="page"/>
+        <text macro="URL-access"/>
+      </group>
+    </layout>
+  </bibliography>
+
+  <macros>
+    <!-- auteurs en majuscule -->
+    <macro name="author">
+      <names variable="author">
+        <name form="all" font-variant="normal" text-case="uppercase"/>
+      </names>
+    </macro>
+    <!-- année et suffixe (a, b…) -->
+    <macro name="issued">
+      <date variable="issued">
+        <date-part name="year"/>
+        <date-part name="month" prefix=","/>
+        <date-part name="day" prefix=","/>
+      </date>
+    </macro>
+    <!-- titre en italique -->
+    <macro name="title">
+      <text variable="title" font-style="italic"/>
+    </macro>
+    <macro name="container-title">
+      <text variable="container-title" font-style="italic" prefix=". "/>
+      <text variable="volume" prefix=", "/>
+      <text variable="issue" prefix="("/ suffix=")"/>
+      <text variable="page" prefix=", "/>
+    </macro>
+    <!-- éditeur, lieu, nb pages -->
+    <macro name="publisher">
+      <text variable="publisher-place"/>
+      <text variable="publisher" prefix=", "/>
+      <text variable="page" prefix=", "/ suffix=" p"/>
+    </macro>
+    <!-- URL et date consultée -->
+    <macro name="URL-access">
+      <group delimiter=". ">
+        <text variable="URL" prefix="Disponible sur : <" suffix=">"/>
+        <text term="accessed" prefix="(consulté le " suffix=")"/>
+      </group>
+    </macro>
+  </macros>
+</style>
